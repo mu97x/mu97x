@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقويم</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calendar-container">
+        <header>
+            <h1>التقويم</h1>
+        </header>
+        <div class="calendar">
+            <div class="calendar-header">
+                <button id="prevMonth">◀</button>
+                <span id="monthYear"></span>
+                <button id="nextMonth">▶</button>
+            </div>
+            <div class="days-of-week">
+                <div>الأحد</div>
+                <div>الإثنين</div>
+                <div>الثلاثاء</div>
+                <div>الأربعاء</div>
+                <div>الخميس</div>
+                <div>الجمعة</div>
+                <div>السبت</div>
+            </div>
+            <div class="days" id="days"></div>
+        </div>
+        <div class="info">
+            <button id="jumpToToday">القفز إلى التاريخ الحالي</button>
+            <div>
+                <strong>عدد الأيام المتبقية حتى التاريخ المحدد:</strong> <span id="daysUntil"></span>
+            </div>
+            <div>
+                <strong>عدد الأيام المنقضية منذ التاريخ المحدد:</strong> <span id="daysSince"></span>
+            </div>
+            <hr>
+            <div>
+                <strong>الأيام المتبقية في العام:</strong> <span id="daysRemaining"></span>
+            </div>
+            <div>
+                <strong>الأيام المنقضية في العام:</strong> <span id="daysPassed"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

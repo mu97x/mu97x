@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.calendar-container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 350px;
+    max-width: 100%;
+}
+
+header {
+    background: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.calendar {
+    padding: 10px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+button {
+    background: #007bff;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.days-of-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.day {
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.day:hover {
+    background: #e9ecef;
+}
+
+.day.current {
+    color: red;
+}
+
+.day.selected {
+    background: #007bff;
+    color: white;
+}
+
+.info {
+    padding: 10px;
+    background: #f9f9f9;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.info button {
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.info div {
+    margin-bottom: 5px;
+}
+
+.info strong {
+    display: inline-block;
+    width: 250px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
