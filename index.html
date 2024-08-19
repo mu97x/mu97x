@@ -3,49 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تقويم</title>
+    <title>Simple Calendar</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="calendar-container">
         <header>
-            <h1>التقويم</h1>
+            <button id="prevYear">&lt;&lt;</button>
+            <button id="prevMonth">&lt;</button>
+            <div id="monthYearContainer">
+                <h1 id="monthYear"></h1>
+                <h2 id="year"></h2>
+            </div>
+            <button id="nextMonth">&gt;</button>
+            <button id="nextYear">&gt;&gt;</button>
         </header>
-        <div class="calendar">
-            <div class="calendar-header">
-                <button id="prevMonth">◀</button>
-                <span id="monthYear"></span>
-                <button id="nextMonth">▶</button>
+        <button id="todayButton">اليوم</button>
+        <table id="calendar">
+            <thead>
+                <tr>
+                    <th>الأحد</th>
+                    <th>الاثنين</th>
+                    <th>الثلاثاء</th>
+                    <th>الأربعاء</th>
+                    <th>الخميس</th>
+                    <th>الجمعة</th>
+                    <th>السبت</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div id="infoMessage"></div>
+        <button id="selectHolidaysButton">تحديد العطلات</button>
+        <button id="selectStartDayButton">اختيار يوم بدء الأسبوع</button>
+    </div>
+
+    <!-- Modal for selecting holidays -->
+    <div id="holidayModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>حدد أيام العطلات</h2>
             </div>
-            <div class="days-of-week">
-                <div>الأحد</div>
-                <div>الإثنين</div>
-                <div>الثلاثاء</div>
-                <div>الأربعاء</div>
-                <div>الخميس</div>
-                <div>الجمعة</div>
-                <div>السبت</div>
+            <div class="modal-body">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" value="0" id="holidaySun">الأحد</td>
+                            <td><input type="checkbox" value="1" id="holidayMon">الاثنين</td>
+                            <td><input type="checkbox" value="2" id="holidayTue">الثلاثاء</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="3" id="holidayWed">الأربعاء</td>
+                            <td><input type="checkbox" value="4" id="holidayThu">الخميس</td>
+                            <td><input type="checkbox" value="5" id="holidayFri">الجمعة</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="6" id="holidaySat">السبت</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="days" id="days"></div>
-        </div>
-        <div class="info">
-            <button id="jumpToToday">القفز إلى التاريخ الحالي</button>
-            <div>
-                <strong>عدد الأيام المتبقية حتى التاريخ المحدد:</strong> <span id="daysUntil"></span>
-            </div>
-            <div>
-                <strong>عدد الأيام المنقضية منذ التاريخ المحدد:</strong> <span id="daysSince"></span>
-            </div>
-            <hr>
-            <div>
-                <strong>الأيام المتبقية في العام:</strong> <span id="daysRemaining"></span>
-            </div>
-            <div>
-                <strong>الأيام المنقضية في العام:</strong> <span id="daysPassed"></span>
+            <div class="modal-footer">
+                <button id="applyHolidays">تطبيق العطلات</button>
             </div>
         </div>
     </div>
-
-    <script src="script.js"></script>
+    <!-- Modal for selecting start day -->
+    <div id="startDayModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>حدد يوم بدء الأسبوع</h2>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><input type="radio" name="startDay" value="0" id="startDaySun"><label for="startDaySun">الأحد</label></td>
+                            <td><input type="radio" name="startDay" value="1" id="startDayMon"><label for="startDayMon">الاثنين</label></td>
+                            <td><input type="radio" name="startDay" value="2" id="startDayTue"><label for="startDayTue">الثلاثاء</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="startDay" value="3" id="startDayWed"><label for="startDayWed">الأربعاء</label></td>
+                            <td><input type="radio" name="startDay" value="4" id="startDayThu"><label for="startDayThu">الخميس</label></td>
+                            <td><input type="radio" name="startDay" value="5" id="startDayFri"><label for="startDayFri">الجمعة</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="startDay" value="6" id="startDaySat"><label for="startDaySat">السبت</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button id="applyStartDay">تطبيق يوم بدء الأسبوع</button>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="script.js"></script>
 </html>
